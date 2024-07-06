@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState, useEffect } from 'react'
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
@@ -25,6 +24,12 @@ const App = () => {
     setTodos(newTodos)
   }
 
+  const editTodo = (index, newTask) => {
+    const newTodos = [...todos]
+    newTodos[index].task = newTask
+    setTodos(newTodos)
+  }
+
   const removeTodo = index => {
     const newTodos = todos.filter((_, i) => i !== index)
     setTodos(newTodos)
@@ -34,7 +39,12 @@ const App = () => {
     <div className="app">
       <h1>Todo List</h1>
       <TodoForm addTodo={addTodo} />
-      <TodoList todos={todos} toggleComplete={toggleComplete} removeTodo={removeTodo} />
+      <TodoList
+        todos={todos}
+        toggleComplete={toggleComplete}
+        removeTodo={removeTodo}
+        editTodo={editTodo}
+      />
     </div>
   )
 }

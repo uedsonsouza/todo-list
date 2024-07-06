@@ -1,5 +1,5 @@
 // src/components/TodoForm.js
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const TodoForm = ({ addTodo }) => {
   const [task, setTask] = useState('')

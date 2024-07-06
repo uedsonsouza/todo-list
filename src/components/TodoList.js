@@ -1,8 +1,25 @@
-// src/components/TodoList.js
 import React from 'react'
 import TodoItem from './TodoItem'
+import TodoEdit from './TodoEdit'
 
-const TodoList = ({ todos, toggleComplete, removeTodo }) => {
+const TodoList = ({ todos, toggleComplete, removeTodo, editTodo }) => {
+  const [edit, setEdit] = React.useState({
+    id: null,
+    task: '',
+  })
+
+  const submitUpdate = task => {
+    editTodo(edit.id, task)
+    setEdit({
+      id: null,
+      task: '',
+    })
+  }
+
+  if (edit.id) {
+    return <TodoEdit edit={edit} onsubmit={submitUpdate} />
+  }
+
   return (
     <ul>
       {todos.map((todo, index) => (
@@ -12,6 +29,7 @@ const TodoList = ({ todos, toggleComplete, removeTodo }) => {
           todo={todo}
           toggleComplete={toggleComplete}
           removeTodo={removeTodo}
+          setEdit={setEdit}
         />
       ))}
     </ul>
