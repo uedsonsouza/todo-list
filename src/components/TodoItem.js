@@ -1,4 +1,3 @@
-// src/components/TodoItem.js
 import React from 'react'
 
 const TodoItem = ({ todo, index, toggleComplete, removeTodo, setEdit }) => {
@@ -11,7 +10,7 @@ const TodoItem = ({ todo, index, toggleComplete, removeTodo, setEdit }) => {
         {todo.task}
       </span>
       <button onClick={() => removeTodo(index)}>Remove</button>
-      <button onClick={() => setEdit({ id: index, task: todo.task })}>Edit</button>
+      <button onClick={() => setEdit({ id: index, value: todo.task })}>Edit</button>
     </li>
   )
 }

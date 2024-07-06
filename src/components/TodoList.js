@@ -1,23 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TodoItem from './TodoItem'
 import TodoEdit from './TodoEdit'
 
 const TodoList = ({ todos, toggleComplete, removeTodo, editTodo }) => {
-  const [edit, setEdit] = React.useState({
+  const [edit, setEdit] = useState({
     id: null,
-    task: '',
+    value: '',
   })
 
-  const submitUpdate = task => {
-    editTodo(edit.id, task)
+  const submitUpdate = value => {
+    editTodo(edit.id, value)
     setEdit({
       id: null,
-      task: '',
+      value: '',
     })
   }
 
-  if (edit.id) {
-    return <TodoEdit edit={edit} onsubmit={submitUpdate} />
+  if (edit.id !== null) {
+    return <TodoEdit edit={edit} onSubmit={submitUpdate} />
   }
 
   return (

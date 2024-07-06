@@ -1,23 +1,23 @@
 import React, { useState } from 'react'
 
-const TodoEdit = ({ edit, onsubmit }) => {
-  const [task, setTask] = useState(edit.task)
+const TodoEdit = ({ edit, onSubmit }) => {
+  const [value, setValue] = useState(edit.value)
 
   const handleSubmit = e => {
     e.preventDefault()
-    if (!task) return
-    onsubmit(task)
+    if (!value) return
+    onSubmit(value)
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={task}
-        onChange={e => setTask(e.target.value)}
-        placeholder="Edit task"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+        placeholder="Update task"
       />
-      <button type="submit">Save</button>
+      <button type="submit">Update</button>
     </form>
   )
 }
