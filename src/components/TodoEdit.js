@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Form, Button } from 'react-bootstrap'
 
 const TodoEdit = ({ edit, onSubmit }) => {
   const [value, setValue] = useState(edit.value)
@@ -10,15 +11,19 @@ const TodoEdit = ({ edit, onSubmit }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        placeholder="Update task"
-      />
-      <button type="submit">Update</button>
-    </form>
+    <Form onSubmit={handleSubmit} className="mb-4">
+      <Form.Group>
+        <Form.Control
+          type="text"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+          placeholder="Update task"
+        />
+      </Form.Group>
+      <Button type="submit" variant="primary" className="mt-2">
+        Update
+      </Button>
+    </Form>
   )
 }
 

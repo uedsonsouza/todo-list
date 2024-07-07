@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App = () => {
   const [todos, setTodos] = useState([])
