@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TodoItem from './TodoItem'
 import TodoEdit from './TodoEdit'
+import { ListGroup } from 'react-bootstrap'
 
 const TodoList = ({ todos, toggleComplete, removeTodo, editTodo }) => {
   const [edit, setEdit] = useState({
@@ -21,18 +22,18 @@ const TodoList = ({ todos, toggleComplete, removeTodo, editTodo }) => {
   }
 
   return (
-    <ul>
+    <ListGroup>
       {todos.map((todo, index) => (
         <TodoItem
           key={index}
-          index={index}
           todo={todo}
+          index={index}
           toggleComplete={toggleComplete}
           removeTodo={removeTodo}
           setEdit={setEdit}
         />
       ))}
-    </ul>
+    </ListGroup>
   )
 }
 
