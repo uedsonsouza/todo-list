@@ -21,8 +21,8 @@ const TodoForm = ({ addTodo }) => {
           placeholder="Add a new task"
         />
       </Form.Group>
-      <Button type="submit" variant="primary" className="mt-2">
-        Add
+      <Button class="btn btn-primary" type="submit">
+        submit
       </Button>
     </Form>
   )
