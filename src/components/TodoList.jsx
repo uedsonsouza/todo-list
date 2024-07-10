@@ -1,21 +1,10 @@
-import React, { useState } from 'react'
 import TodoItem from './TodoItem'
 import TodoEdit from './TodoEdit'
 import { ListGroup } from 'react-bootstrap'
+import { useEditTodo } from '../hooks/useTodoList'
 
 const TodoList = ({ todos, toggleComplete, removeTodo, editTodo }) => {
-  const [edit, setEdit] = useState({
-    id: null,
-    value: '',
-  })
-
-  const submitUpdate = value => {
-    editTodo(edit.id, value)
-    setEdit({
-      id: null,
-      value: '',
-    })
-  }
+  const { edit, setEdit, submitUpdate } = useEditTodo(editTodo)
 
   if (edit.id !== null) {
     return <TodoEdit edit={edit} onSubmit={submitUpdate} />
