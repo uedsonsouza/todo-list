@@ -1,8 +1,15 @@
+import { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import useFormSubmit from '../hooks/useFormSubmit'
 
 const TodoForm = ({ addTodo }) => {
-  const [task, setTask, handleSubmit] = useFormSubmit(addTodo)
+  const [task, setTask] = useState('')
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    if (!task) return
+    addTodo(task)
+    setTask('')
+  }
 
   return (
     <Form onSubmit={handleSubmit} className="mb-4">

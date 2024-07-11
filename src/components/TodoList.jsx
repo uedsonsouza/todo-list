@@ -1,8 +1,7 @@
 import TodoItem from './TodoItem'
 import TodoEdit from './TodoEdit'
 import { ListGroup } from 'react-bootstrap'
-import { useEditTodo } from '../hooks/useTodoList'
-
+import useEditTodo from '../hooks/useTodoList'
 const TodoList = ({ todos, toggleComplete, removeTodo, editTodo }) => {
   const { edit, setEdit, submitUpdate } = useEditTodo(editTodo)
 

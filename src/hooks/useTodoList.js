@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export const useEditTodo = editTodo => {
+const useEditTodo = editTodo => {
   const [edit, setEdit] = useState({
     id: null,
     value: '',
@@ -16,3 +16,5 @@ export const useEditTodo = editTodo => {
 
   return { edit, setEdit, submitUpdate }
 }
+
+export default useEditTodo

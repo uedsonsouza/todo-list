@@ -1,10 +1,14 @@
-import useTodoEdit from '../hooks/useTodoEdit'
+import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 
 const TodoEdit = ({ edit, onSubmit }) => {
-  const [value, setValue, handleSubmit] = useTodoEdit(edit.task, onSubmit)
+  const [value, setValue] = useState(edit.value)
 
-
+  const handleSubmit = e => {
+    e.preventDefault()
+    if (!value) return
+    onSubmit(value)
+  }
 
   return (
     <Form onSubmit={handleSubmit} className="mb-4">
